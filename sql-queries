@@ -1,0 +1,13 @@
+select * from products;
+/*select all products*/
+
+select count(*) as product_count, status from orders group by status order by product_count desc;
+/*Get product count*/
+
+select count(*) as product_count, productLine from products group by productLine;
+
+select count(*) as product_count, p.warehouseCode, w.warehouseName from products p inner join warehouses w on p.warehouseCode = w.warehouseCode group by p.warehouseCode order by product_count desc;
+/*get products grouped by warehouse*/
+
+select count(*) as product_count, pl.productLine from products p inner join productlines pl on p.productLine = pl.productLine group by p.productLine order by product_count desc;
+/*get products grouped by productLines*/
